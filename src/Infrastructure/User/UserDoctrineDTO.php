@@ -15,22 +15,12 @@ class UserDoctrineDTO implements UserDTO
     public string $name;
     public DateTimeImmutable $creation;
 
-    public function fromEntity(User $user): UserDTO
+    public function fromArray(array $userData): UserDTO
     {
-        $this->id = $this->getPrivateValue($user, 'id')->value();
-        $this->name = $this->getPrivateValue($user, 'username')->value();
-        $this->creation = $this->getPrivateValue($user, 'creationDate')->value();
+        $this->id = $userData['id'];
+        $this->name = $userData['username'];
+        $this->creation = $userData['creationDate'];
 
         return $this;
-    }
-
-    private function getPrivateValue(User $user, string $propertyName): mixed
-    {
-        $reflector = new ReflectionObject($user);
-
-        $property = $reflector->getProperty($propertyName);
-        $property->setAccessible(true);
-
-        return $property->getValue($user);
     }
 }

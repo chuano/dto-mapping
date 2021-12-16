@@ -22,6 +22,12 @@ class User
 
     public function fillDto(UserDTO $dto): UserDTO
     {
-        return $dto->fromEntity($this);
+        return $dto->fromArray(
+            [
+                'id' => $this->id->value(),
+                'username' => $this->username->value(),
+                'creationDate' => $this->creationDate->value()
+            ]
+        );
     }
 }

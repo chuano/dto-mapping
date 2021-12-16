@@ -6,5 +6,5 @@ namespace App\Domain\User;
 
 interface UserDTO
 {
-    public function fromEntity(User $user): self;
+    public function fromArray(array $user): self;
 }
