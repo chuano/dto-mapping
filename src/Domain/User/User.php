@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\User;
 
-use DateTimeImmutable;
-
 class User
 {
     private UserId $id;
