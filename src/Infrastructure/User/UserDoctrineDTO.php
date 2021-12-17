@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\User;
 
-use App\Domain\User\User;
 use App\Domain\User\UserDTO;
 use DateTimeImmutable;
-use ReflectionObject;
 
 class UserDoctrineDTO implements UserDTO
 {
